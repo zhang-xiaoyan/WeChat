@@ -20,6 +20,7 @@ body{ position: relative; color: #666666; }
 .page:nth-of-type(5){ z-index: 2; }
 .page:nth-of-type(6){ z-index: 1; }
 /* 欢迎页，tree是从上到下的动画 */
+#welcome{ transition: 0.7s; }
 @-webkit-keyframes tree {
        0%{
               opacity: 0;
