@@ -160,7 +160,7 @@ function fnScore(){
                     }
                 }
                 // oInput.value=this.index+1;// 一般都是从1分开始记得
-                oInput.value=arr[this.index];// 可以看到具体的评价
+                oInput.value=arr[this.index];// 这样可以看到具体的评价
             });
         }
     }
