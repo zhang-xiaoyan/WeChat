@@ -88,6 +88,7 @@ function fnTab(){
     var iStartTouchX=0;// 手指按下的时候记录一些数据
     var iStartX=0;
     auto();
+    fnScore();// 在这里调用，是因为进入首页之后才能进行评分
     function auto(){
         oTimer=setInterval(function(){
             iNow++;
@@ -134,5 +135,33 @@ function fnTab(){
             removeClass(aA[i],"active");
         }
         addClass(aA[iNow],"active");
+    }
+}
+function fnScore(){
+    var oScore=id("score");
+    var aLi=oScore.getElementsByTagName("li");// 对li进行分组操作的
+    var arr=["好失望","没有想象的那么差","很一般","良好","棒极了"];
+    for(var i=0;i<aLi.length;i++){
+        fn(aLi[i]);// 每一个li
+    }
+    function fn(oLi){
+        var aA=oLi.getElementsByTagName("a");
+        //alert(aA.length);弹出3次，每次弹出的aA的长度为5
+        var oInput=oLi.getElementsByTagName("input")[0];
+        for(var i=0;i<aA.length;i++){
+            aA[i].index=i;
+            bind(aA[i],"touchstart",function(){
+                //alert(this.index);
+                for(var i=0;i<aA.length;i++){
+                    if(i<=this.index){
+                        addClass(aA[i],"active");
+                    }else{
+                        removeClass(aA[i],"active");
+                    }
+                }
+                // oInput.value=this.index+1;// 一般都是从1分开始记得
+                oInput.value=arr[this.index];// 可以看到具体的评价
+            });
+        }
     }
 }
