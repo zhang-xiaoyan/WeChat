@@ -13,27 +13,50 @@
     </script>
 </head>
 <body>
-<section class="page pageShow" id="welcome">
-    <div class="tree">
-        <img src="img/tree.jpg">
-        <div id="welcome2">
-            <img src="img/title.png">
-            <span class="shake"></span>
-        </div>
-        <img src="img/title2.png" class="cctv"/>
-        <span class="cloud"></span>
-        <span class="cloud"></span>
-        <span class="cloud"></span>
-    </div>
-    <h1 id="logo"><img src="img/logo.png"></h1>
-</section>
+<!--<section class="page pageShow" id="welcome">-->
+    <!--<div class="tree">-->
+        <!--<img src="img/tree.jpg">-->
+        <!--<div id="welcome2">-->
+            <!--<img src="img/title.png">-->
+            <!--<span class="shake"></span>-->
+        <!--</div>-->
+        <!--<img src="img/title2.png" class="cctv"/>-->
+        <!--<span class="cloud"></span>-->
+        <!--<span class="cloud"></span>-->
+        <!--<span class="cloud"></span>-->
+    <!--</div>-->
+    <!--<h1 id="logo"><img src="img/logo.png"></h1>-->
+<!--</section>-->
 <script>
     fnLoad();
 </script>
-<section class="page pageShow">首页</section>
+<section class="page pageShow">
+    <section id="tabPic">
+        <ul id="picList">
+            <li><img src="img/1.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+            <li><img src="img/4.jpg"></li>
+            <li><img src="img/5.jpg"></li>
+        </ul>
+        <section id="picMask">
+            <p>成都九寨沟景区</p>
+            <nav>
+                <a href="javascript:;" class="active"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </nav>
+        </section>
+    </section>
+</section>
 <section class="page">谢谢评分(跳转页)</section>
 <section class="page">上传照片(新闻线索)</section>
 <section class="page">上传说明(表单页)</section>
 <section class="page">上传成功</section>
+<script>
+    fnTab();
+</script>
 </body>
 </html>

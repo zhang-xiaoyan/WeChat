@@ -72,3 +72,29 @@ function fnLoad(){// 预加载 做一些都是为了加载一些东西进来的�
         }
     }*/
 }
+function fnTab(){
+    var oTab=id("tabPic");// 把拖拽事件加给最外框
+    var oList=id("picList");// 因为这个图片列表的下部分被挡住了
+    var oMask=id("picMask");
+    var aA=oMask.getElementsByTagName("nav")[0].children;
+    // alert(aA.length);
+    var iNow=0;
+    var iX=0;// 记录translateX的
+    var iW=view().w;// 记录一下屏幕的宽度，写640也可以，最好这样写
+    var oTimer=0;
+    oTimer=setInterval(function(){
+        iNow++;
+        iNow=iNow%aA.length;// 0,1,2,3,4
+        tab();
+    },2000);
+    function tab(){
+        iX=-iNow*iW;// 这里需要的是负值
+        oList.style.transform="translateX("+ iX +"px)";
+        oList.style.WebkitTransform="translateX("+ iX +"px)";
+        oList.style.transition=0.5+"s";
+        for(var i=0;i<aA.length;i++){
+            removeClass(aA[i],"active");
+        }
+        addClass(aA[iNow],"active");
+    }
+}
