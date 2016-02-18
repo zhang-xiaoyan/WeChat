@@ -164,4 +164,58 @@ function fnScore(){
             });
         }
     }
+    fnIndex();// 评分之后调用这个函数
+}
+function fnInfo(oInfo,sInfo){
+    oInfo.innerHTML=sInfo;
+    oInfo.style.webkitTransform="scale(1)";
+    oInfo.style.transform="scale(1)";
+    oInfo.style.opacity=1;
+    // 如果你想用transitionEnd事件，动画执行完立马就执行了，我们用一下setTimeout设置一下，我们需要停留1s钟
+    setTimeout(function(){
+        oInfo.style.webkitTransform="scale(0)";
+        oInfo.style.transform="scale(0)";
+        oInfo.style.opacity=0;
+    },1000);
+}
+function fnIndex(){
+    var oIndex=id("index");
+    var oBtn=oIndex.getElementsByClassName("btn")[0];
+    var oP=oIndex.getElementsByClassName("info")[0];
+    var bScore=false;
+    bind(oBtn,"touchend",fnEnd);
+    function fnEnd(){
+        //alert(1);
+        bScore=fnScoreChecked();
+        //console.log(bScore);
+        if(bScore){
+            if(bTag()){
+                alert("执行页面跳转");
+            }else{
+                fnInfo(oP,"请给景区添加标签");
+            }
+        }else{
+            fnInfo(oP,"请给景区评分");
+        }
+    }
+    function fnScoreChecked(){
+        var oScore=id("score");
+        var aInput=oScore.getElementsByTagName("input");
+        for(var i=0;i<aInput.length;i++){
+            if(aInput[i].value==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    function bTag(){
+        var oTag=id("tags");
+        var aInput=oTag.getElementsByTagName("input");
+        for(var i=0;i<aInput.length;i++){
+            if(aInput[i].checked){
+                return true;
+            }
+        }
+        return false;
+    }
 }
