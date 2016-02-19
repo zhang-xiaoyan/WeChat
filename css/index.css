@@ -173,25 +173,38 @@ body{ position: relative; color: #666666; }
 .cloud:nth-of-type(2){ left: 79px; top: 77px; width: 90px; height: 70px; -webkit-animation: 3s 2.5s cloud infinite alternate linear; animation: 3s 2.5s cloud infinite alternate linear; }
 .cloud:nth-of-type(3){ left: 402px; top: 142px;width: 54px; height: 40px; -webkit-animation: 3s 2.8s cloud infinite alternate linear; animation: 3s 2.8s cloud infinite alternate linear; }
 /* 首页 */
-@keyframes newsBtn {
-       0%{
-              transform: scale(0);
-              opacity: 0.1;
-       }
-       100%{
-              transform: scale(1.5);
-              opacity: 1;
-       }
-}
-@-webkit-keyframes newsBtn {
-       0%{
-              -webkit-transform: scale(0);
-              opacity: 0.1;
-       }
-       100%{
-              -webkit-transform: scale(1.5);
-              opacity: 1;
-       }
+/*@keyframes newsBtn {*/
+       /*0%{*/
+              /*transform: scale(0);*/
+              /*opacity: 0.1;*/
+       /*}*/
+       /*100%{*/
+              /*transform: scale(1.5);*/
+              /*opacity: 1;*/
+       /*}*/
+/*}*/
+/*@-webkit-keyframes newsBtn {*/
+       /*0%{*/
+              /*-webkit-transform: scale(0);*/
+              /*opacity: 0.1;*/
+       /*}*/
+       /*100%{*/
+              /*-webkit-transform: scale(1.5);*/
+              /*opacity: 1;*/
+       /*}*/
+/*}*/
+@-webkit-keyframes newsBtn
+{
+       0% { box-shadow: 0px 0px 0px 0px rgba(0,0,0,0),0px 0px 0px 1px rgba(230,0,18,0); }
+       10%{ box-shadow: 0px 0px 0px 1px rgba(0,0,0,0), 0px 0px 0px 2px rgba(230,0,18,0.1);}
+       20%{ box-shadow: 0px 0px 0px 2px rgba(0,0,0,0), 0px 0px 0px 4px rgba(230,0,18,0.2);}
+       40%{ box-shadow: 0px 0px 0px 0px rgba(0,0,0,0), 0px 0px 0px 1px rgba(230,0,18,0.1),0px 0px 0px 4px rgba(0,0,0,0), 0px 0px 0px 6px rgba(230,0,18,0.3);}
+       50%{ box-shadow: 0px 0px 0px 1px rgba(0,0,0,0), 0px 0px 0px 3px rgba(230,0,18,0.2),0px 0px 0px 5px rgba(0,0,0,0), 0px 0px 0px 8px rgba(230,0,18,0.4);}
+       60%{ box-shadow: 0px 0px 0px 2px rgba(0,0,0,0), 0px 0px 0px 5px rgba(230,0,18,0.3),0px 0px 0px 6px rgba(0,0,0,0), 0px 0px 0px 10px rgba(230,0,18,0.5);}
+       70%{ box-shadow: 0px 0px 0px 3px rgba(0,0,0,0), 0px 0px 0px 6px rgba(230,0,18,0.4),0px 0px 0px 7px rgba(0,0,0,0), 0px 0px 0px 11px rgba(230,0,18,0.4);}
+       80%{ box-shadow: 0px 0px 0px 4px rgba(0,0,0,0), 0px 0px 0px 7px rgba(230,0,18,0.3),0px 0px 0px 8px rgba(0,0,0,0), 0px 0px 0px 12px rgba(230,0,18,0.3);}
+       90%{ box-shadow: 0px 0px 0px 5px rgba(0,0,0,0), 0px 0px 0px 6px rgba(230,0,18,0.2),0px 0px 0px 9px rgba(0,0,0,0), 0px 0px 0px 13px rgba(230,0,18,0.2);}
+       100%{ box-shadow: 0px 0px 0px 7px rgba(0,0,0,0), 0px 0px 0px 7px rgba(230,0,18,0.1),0px 0px 0px 10px rgba(0,0,0,0), 0px 0px 0px 14px rgba(230,0,18,0);}
 }
 #index{transition: 0.5s; }
 #tabPic{ overflow: hidden; position: relative; }
@@ -225,14 +238,17 @@ body{ position: relative; color: #666666; }
 #tags input:checked+span{  background: #3c9bbb; color: #ffffff; }
 /* 跳转页面 */
 #mask{ background: rgba(0,0,0,0.7) url("../img/mask.png") no-repeat center 300px; transition: 1s; opacity: 0; }
-/* 波纹动画制作 */
-.newsBtn{ width: 78px; height: 78px;text-align: center; position: absolute; top: 20px; right: 20px; }
-.newsBtn em{ width: 56px; height: 56px; padding: 11px; font-size: 22px; line-height: 28px; letter-spacing: 2px; color: #ffffff;
-             background: rgba(230,0,18,0.5); border-radius: 39px; position: absolute; left: 0; top: 0; z-index: 2;}
-.newsBtn span{ width: 78px; height: 78px; background: rgba(230,0,18,0.3); position: absolute; left: 0; top: 0; border-radius: 39px;
-               opacity: 0.1; -webkit-transform: scale(0); transform: scale(0); }
-.newsBtn span:nth-of-type(1){ animation: newsBtn 2s infinite alternate; }
-.newsBtn span:nth-of-type(2){ animation: newsBtn 2s 0.5s infinite alternate; }
-.newsBtn span:nth-of-type(3){ animation: newsBtn 2s 1s infinite alternate; }
+/* 波纹动画制作 一共两种方法*/
+/*.newsBtn{ width: 78px; height: 78px;text-align: center; position: absolute; top: 20px; right: 20px; }*/
+/*.newsBtn em{ width: 56px; height: 56px; padding: 11px; font-size: 22px; line-height: 28px; letter-spacing: 2px; color: #ffffff;*/
+             /*background: rgba(230,0,18,0.5); border-radius: 39px; position: absolute; left: 0; top: 0; z-index: 2;}*/
+/*.newsBtn span{ width: 78px; height: 78px; background: rgba(230,0,18,0.3); position: absolute; left: 0; top: 0; border-radius: 39px;*/
+               /*opacity: 0.1; -webkit-transform: scale(0); transform: scale(0); }*/
+/*.newsBtn span:nth-of-type(1){ animation: newsBtn 2s infinite alternate; }*/
+/*.newsBtn span:nth-of-type(2){ animation: newsBtn 2s 0.5s infinite alternate; }*/
+/*.newsBtn span:nth-of-type(3){ animation: newsBtn 2s 1s infinite alternate; }*/
+.newsBtn{ text-align: center; position: absolute; top: 20px; right: 20px; width: 56px; height: 56px; padding: 11px;
+           font-size: 22px; line-height: 28px; letter-spacing: 2px; color: #ffffff; background: rgba(230,0,18,0.6);
+           border-radius: 39px; animation: newsBtn 2s infinite alternate; -webkit-animation: newsBtn 2s infinite alternate;}
 /* 新闻线索 */
 #news{opacity: 0;}
