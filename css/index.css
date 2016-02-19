@@ -13,14 +13,14 @@ input,textarea{resize: none;overflow: auto;}
 /* 整体布局，第一页用白色背景盖住了第二页！ */
 /* 初始化：欢迎页和首页是显示的，欢迎页动画过后，可以控制 pageShow，去掉欢迎页的 pageShow！首页出现 */
 body{ position: relative; color: #666666; }
-.pageShow{ display: block; }
 .page{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: hidden; background-color: #ffffff; font-size: 30px;
-       }
-.page:nth-of-type(1){ z-index: 6; }
-.page:nth-of-type(2){ z-index: 5; }
-.page:nth-of-type(3){ z-index: 4; }
-.page:nth-of-type(4){ z-index: 3; }
-.page:nth-of-type(5){ z-index: 2; }
+       display: none; }
+.pageShow{ display: block; }
+.page:nth-of-type(1){ z-index: 10; }
+.page:nth-of-type(2){ z-index: 9; }
+.page:nth-of-type(3){ z-index: 8; }
+.page:nth-of-type(4){ z-index: 7; }
+.page:nth-of-type(5){ z-index: 6; }
 .page:nth-of-type(6){ z-index: 1; }
 .btn{ position: absolute; width: 606px; height: 74px; bottom: 17px; left: 17px; font-size: 30px; background: #cacaca;
       border-radius: 5px; outline: none; }
@@ -170,6 +170,7 @@ body{ position: relative; color: #666666; }
 .cloud:nth-of-type(2){ left: 79px; top: 77px; width: 90px; height: 70px; -webkit-animation: 3s 2.5s cloud infinite alternate linear; animation: 3s 2.5s cloud infinite alternate linear; }
 .cloud:nth-of-type(3){ left: 402px; top: 142px;width: 54px; height: 40px; -webkit-animation: 3s 2.8s cloud infinite alternate linear; animation: 3s 2.8s cloud infinite alternate linear; }
 /* 首页 */
+#index{transition: 0.5s; }
 #tabPic{ overflow: hidden; position: relative; }
 #picList{ overflow: hidden; width: 500%; }
 #picList li{ float: left; width: 20%; }
@@ -199,3 +200,7 @@ body{ position: relative; color: #666666; }
 #tags label input{ display: none; }
 #tags label span{ float: left; border: 1px solid #cdd6e1; padding: 0 24px; font-size: 26px; border-radius: 26px; color: #000; }
 #tags input:checked+span{  background: #3c9bbb; color: #ffffff; }
+/* 跳转页面 */
+#mask{ background: rgba(0,0,0,0.7) url("../img/mask.png") no-repeat center 300px; transition: 1s; opacity: 0; }
+/* 新闻线索 */
+#news{opacity: 0;}

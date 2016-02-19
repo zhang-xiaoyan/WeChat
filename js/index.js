@@ -190,7 +190,8 @@ function fnIndex(){
         //console.log(bScore);
         if(bScore){
             if(bTag()){
-                alert("执行页面跳转");
+                //alert("执行页面跳转");
+                fnIndexOut();
             }else{
                 fnInfo(oP,"请给景区添加标签");
             }
@@ -218,4 +219,28 @@ function fnIndex(){
         }
         return false;
     }
+}
+function fnIndexOut(){
+    var oMask=id("mask");
+    var oIndex=id("index");
+    var oNews=id("news");
+    addClass(oMask,"pageShow");
+    addClass(oNews,"pageShow");
+    // 原本元素是隐藏的，后来添加class之后，元素显示出来，在这个渲染过程中，动画transition是不会显示出来的
+    // 也就是display:block和display:none这个渲染过程中是不起动画效果的
+    // 用setTimeout来处理一下,等渲染完之后动画就起作用了
+    // 跳转页出来之后，首页变得模糊了
+    setTimeout(function(){
+        oMask.style.opacity=1;
+        oIndex.style.filter="blur(5px)";
+        oIndex.style.webkitFilter="blur(5px)";
+    },14);
+    // 为什么不用transtionEnd？因为这个是动画执行完就直接消失了，我们需要停留几秒钟，所以用setTimeout
+    setTimeout(function(){
+        oNews.style.transition=0.5+"s";
+        oMask.style.opacity=0;
+        oIndex.style.filter="blur(0px)";
+        oIndex.style.webkitFilter="blur(0px)";
+        oNews.style.opacity=1;
+    },3000)
 }
