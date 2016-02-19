@@ -35,108 +35,110 @@
 <section class="page" id="news">上传照片(新闻线索)</section>
 <section class="page" id="mask">谢谢评分(跳转页)</section>
 <section class="page pageShow" id="index">
-    <section id="tabPic">
-        <ul id="picList">
-            <li><img src="img/1.jpg"></li>
-            <li><img src="img/2.jpg"></li>
-            <li><img src="img/3.jpg"></li>
-            <li><img src="img/4.jpg"></li>
-            <li><img src="img/5.jpg"></li>
-        </ul>
-        <section id="picMask">
-            <p>成都九寨沟景区</p>
-            <nav>
-                <a href="javascript:;" class="active"></a>
-                <a href="javascript:;"></a>
-                <a href="javascript:;"></a>
-                <a href="javascript:;"></a>
-                <a href="javascript:;"></a>
-            </nav>
+    <section class="scrollWrap">
+        <section id="tabPic">
+            <ul id="picList">
+                <li><img src="img/1.jpg"></li>
+                <li><img src="img/2.jpg"></li>
+                <li><img src="img/3.jpg"></li>
+                <li><img src="img/4.jpg"></li>
+                <li><img src="img/5.jpg"></li>
+            </ul>
+            <section id="picMask">
+                <p>成都九寨沟景区</p>
+                <nav>
+                    <a href="javascript:;" class="active"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </nav>
+            </section>
         </section>
+        <section id="score">
+            <h2>给景区评分</h2>
+            <ul class="scoreList">
+                <li>
+                    <span>综合印象</span>
+                    <nav>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                    </nav>
+                    <input type="hidden" value="0"/>
+                </li>
+                <li>
+                    <span>服务指数</span>
+                    <nav>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                    </nav>
+                    <input type="hidden" value="0"/>
+                </li>
+                <li>
+                    <span>消费指数</span>
+                    <nav>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                    </nav>
+                    <input type="hidden" value="0"/>
+                </li>
+            </ul>
+        </section>
+        <section id="tags" >
+            <h2>给景区添加标签</h2>
+            <label>
+                <input type="radio" name="tags" value="服务好"/>
+                <span>服务好</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="景色赞"/>
+                <span>景色赞</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="千篇一律"/>
+                <span>千篇一律</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="看人海"/>
+                <span>看人海</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="服务好"/>
+                <span>服务好</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="景色赞"/>
+                <span>景色赞</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="千篇一律"/>
+                <span>千篇一律</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="看人海"/>
+                <span>看人海</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="千篇一律"/>
+                <span>千篇一律</span>
+            </label>
+            <label>
+                <input type="radio" name="tags" value="看人海"/>
+                <span>看人海</span>
+            </label>
+        </section>
+        <p class="info">提示信息</p>
+        <input type="button" value="提交" class="btn submit"/>
     </section>
-    <section id="score">
-        <h2>给景区评分</h2>
-        <ul class="scoreList">
-            <li>
-                <span>综合印象</span>
-                <nav>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                </nav>
-                <input type="hidden" value="0"/>
-            </li>
-            <li>
-                <span>服务指数</span>
-                <nav>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                </nav>
-                <input type="hidden" value="0"/>
-            </li>
-            <li>
-                <span>消费指数</span>
-                <nav>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                    <a href="javascript:;"></a>
-                </nav>
-                <input type="hidden" value="0"/>
-            </li>
-        </ul>
-    </section>
-    <section id="tags" >
-        <h2>给景区添加标签</h2>
-        <label>
-            <input type="radio" name="tags" value="服务好"/>
-            <span>服务好</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="景色赞"/>
-            <span>景色赞</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="千篇一律"/>
-            <span>千篇一律</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="看人海"/>
-            <span>看人海</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="服务好"/>
-            <span>服务好</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="景色赞"/>
-            <span>景色赞</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="千篇一律"/>
-            <span>千篇一律</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="看人海"/>
-            <span>看人海</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="千篇一律"/>
-            <span>千篇一律</span>
-        </label>
-        <label>
-            <input type="radio" name="tags" value="看人海"/>
-            <span>看人海</span>
-        </label>
-    </section>
-    <p class="info">提示信息</p>
-    <input type="button" value="提交" class="btn submit"/>
 </section>
 <script>
     fnTab();

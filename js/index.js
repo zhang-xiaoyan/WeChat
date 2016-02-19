@@ -72,9 +72,9 @@ function fnLoad(){// 预加载 做一些都是为了加载一些东西进来的�
         }
     }*/
 }
-bind(document,"touchmove",function(ev){
-    ev.preventDefault();
-});
+//bind(document,"touchmove",function(ev){
+//    ev.preventDefault();
+//});去掉这个，滚动条才可以滑动，拖拽的时候也不会有问题，因为.page使用了overflow:auto，之前是hidden
 function fnTab(){
     var oTab=id("tabPic");// 把拖拽事件加给最外框
     var oList=id("picList");// 因为这个图片列表的下部分被挡住了

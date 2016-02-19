@@ -13,7 +13,7 @@ input,textarea{resize: none;overflow: auto;}
 /* 整体布局，第一页用白色背景盖住了第二页！ */
 /* 初始化：欢迎页和首页是显示的，欢迎页动画过后，可以控制 pageShow，去掉欢迎页的 pageShow！首页出现 */
 body{ position: relative; color: #666666; }
-.page{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: hidden; background-color: #ffffff; font-size: 30px;
+.page{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: auto; background-color: #ffffff; font-size: 30px;
        display: none; }
 .pageShow{ display: block; }
 .page:nth-of-type(1){ z-index: 10; }
@@ -22,12 +22,15 @@ body{ position: relative; color: #666666; }
 .page:nth-of-type(4){ z-index: 7; }
 .page:nth-of-type(5){ z-index: 6; }
 .page:nth-of-type(6){ z-index: 1; }
+/* 有几个页面都有这个提交按钮和提示信息 */
 .btn{ position: absolute; width: 606px; height: 74px; bottom: 17px; left: 17px; font-size: 30px; background: #cacaca;
       border-radius: 5px; outline: none; }
 .submit{ background: #3c9bbb; color: #ffffff; }
 .info{ font-size: 26px; line-height: 60px; text-align: center; width: 100%; position: absolute; bottom: 90px;
        -webkit-transform: scale(0); -webkit-transform-origin: bottom; transition: 0.5s; opacity: 0;}
-/*#index:active .info{-webkit-transform: scale(1); opacity: 1;}*/
+/* 当高度不够时候，添加滚动条，最小高度为iphone5的高度 */
+.scrollWrap{ position: relative; min-height: 1136px; overflow: hidden; }
+/* #index:active .info{-webkit-transform: scale(1); opacity: 1;} */
 /* 欢迎页，tree是从上到下的动画 */
 #welcome{ transition: 0.7s; }
 @-webkit-keyframes tree {
