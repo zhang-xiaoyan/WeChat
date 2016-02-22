@@ -63,6 +63,7 @@ function fnLoad(){// 预加载 做一些都是为了加载一些东西进来的�
     function end(){
         // alert("动画执行完毕！");
         removeClass(oW,"pageShow");
+        fnTab();
     }
     /* for(var i=0;i<arr.length;i++){
         var oImg=new Image();
@@ -88,7 +89,11 @@ function fnTab(){
     var iStartTouchX=0;// 手指按下的时候记录一些数据
     var iStartX=0;
     auto();
-    fnScore();// 在这里调用，是因为进入首页之后才能进行评分
+    //alert(!window.BfnScore);
+    if(!window.BfnScore){// 防止事件重复调用，不要和函数重名了，因为函数也是属于window
+        fnScore();// 在这里调用，是因为进入首页之后才能进行评分
+        window.BfnScore=true;
+    }
     function auto(){
         oTimer=setInterval(function(){
             iNow++;
@@ -164,7 +169,10 @@ function fnScore(){
             });
         }
     }
-    fnIndex();// 评分之后调用这个函数
+    if(!window.BfnIndex){
+        fnIndex();// 评分之后调用这个函数
+        window.BfnIndex=true;
+    }
 }
 function fnInfo(oInfo,sInfo){
     oInfo.innerHTML=sInfo;
@@ -210,7 +218,8 @@ function fnIndex(){
         return true;
     }
     function bTag(){
-        var oTag=id("tags");
+        var oPicList=id("index");
+        var oTag=oPicList.getElementsByClassName("tags")[0];
         var aInput=oTag.getElementsByTagName("input");
         for(var i=0;i<aInput.length;i++){
             if(aInput[i].checked){
@@ -226,6 +235,10 @@ function fnIndexOut(){
     var oNews=id("news");
     addClass(oMask,"pageShow");
     addClass(oNews,"pageShow");
+    if(!window.BfnNews){
+        fnNews();
+        window.BfnNews=true;
+    }
     // 原本元素是隐藏的，后来添加class之后，元素显示出来，在这个渲染过程中，动画transition是不会显示出来的
     // 也就是display:block和display:none这个渲染过程中是不起动画效果的
     // 用setTimeout来处理一下,等渲染完之后动画就起作用了
@@ -242,5 +255,75 @@ function fnIndexOut(){
         oIndex.style.filter="blur(0px)";
         oIndex.style.webkitFilter="blur(0px)";
         oNews.style.opacity=1;
+        removeClass(oMask,"pageShow");
     },3000)
+}
+function fnNews(){
+    var oNews=id("news");
+    var oInfo=oNews.getElementsByClassName("info")[0];
+    var aInput=oNews.getElementsByTagName("input");
+    aInput[0].onchange=function(){
+        //console.log(this.files);
+        //this.files[0].type得到的行为xxx/xxx，我们需要是/前面的，需要处理一下
+        //this.files[0].type.split("/")[0]
+        if(this.files[0].type.split("/")[0]=="video"){
+            fnNewsOut();
+        }else{
+            fnInfo(oInfo,"请上传视频");
+        }
+    };
+    aInput[1].onchange=function(){
+        if(this.files[0].type.split("/")[0]=="image"){
+            fnNewsOut();
+            this.value="";// 这样当你传第2张图片与第1张相同的时候，清除掉缓存问题
+            // 正常如果有后端的话，是提交之后再清空的
+        }else{
+            fnInfo(oInfo,"请上传图片");
+        }
+    };
+}
+function fnNewsOut(){
+    var oNews=id("news");
+    var oForm=id("form");
+    addClass(oForm,"pageShow");// 先显示出来上一个页面再消失掉，然后
+    oNews.style.cssText="";// 需要把行间的东西清空
+    removeClass(oNews,"pageShow");
+    if(!window.BformIn){
+        formIn();
+        window.BformIn=true;
+    }
+}
+function formIn(){
+    var oForm=id("form");
+    var oOver=id("over");
+    var aFormTag=id("formTag").getElementsByTagName("label");
+    var oBtn=oForm.getElementsByClassName("btn")[0];
+    var boff=false;// 判断是否可以提交
+    for(var i=0;i<aFormTag.length;i++){
+        bind(aFormTag[i],"touchend",function(){
+           // console.log(1);
+            boff=true;
+            addClass(oBtn,"submit");
+        });
+    }
+    bind(oBtn,"touchend",function(){
+        if(boff){
+            for(var i=0;i<aFormTag.length;i++){
+                aFormTag[i].getElementsByTagName("input")[0].checked=false;
+            }
+            // alert("可以提交了");
+            boff=false;// 变成false，保证下次还要走这个验证的
+            addClass(oOver,"pageShow");
+            removeClass(oForm,"pageShow");
+            removeClass(oBtn,"submit");
+            over();
+        }
+    })
+}
+function over(){
+    var oOver=id("over");
+    var oBtn=oOver.getElementsByClassName("btn")[0];
+    bind(oBtn,"touchend",function(){
+        removeClass(oOver,"pageShow");
+    });
 }
