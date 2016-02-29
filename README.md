@@ -3,3 +3,4 @@
 
 预览地址：http://zhang-xiaoyan.github.io/WeChat/
 
+![](qr_code.png)
